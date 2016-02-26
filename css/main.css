@@ -1,0 +1,23 @@
+/* CSS Styling for Reddit Top 5 Gif Web App */
+
+
+/*-- general --*/
+
+/*-- color --*/
+
+/*-- components --*/
+
+.gif-container {
+  max-width: 740px;
+  margin: 50px auto;
+  float: none;
+}
+
+.thumb {
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.header {
+  margin-bottom: 25px;
+}
