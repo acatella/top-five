@@ -26,10 +26,27 @@
     </div>
     <div class="row">
       <div class="col-xs-6 text-center">
-        <button class="btn">Subreddit</button>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="subreddit-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subreddit  <span class="caret"></span></button>
+          <ul class="dropdown-menu" aria-labelledby="subreddit-dropdown">
+            <li><a href="#">r/Soccer</a></li>
+            <li><a href="#">r/Hockey</a></li>
+            <li><a href="#">r/NBA</a></li>
+          </ul>
+        </div>
       </div>
       <div class="col-xs-6 text-center">
-        <button class="btn">Date Range</button>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="date-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date Range  <span class="caret"></span></button>
+            <ul class="dropdown-menu" aria-labelledby="date-dropdown">
+              <li><a href="#">Today</a></li>
+              <li><a href="#">This Week</a></li>
+              <li><a href="#">This Month</a></li>
+              <li><a href="#">This Year</a></li>
+            </ul>
+        </div>
+
+
       </div>
     </div>
 

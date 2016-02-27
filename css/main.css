@@ -7,6 +7,9 @@
 
 /*-- components --*/
 
+ul {
+  list-style: none;
+}
 .gif-container {
   max-width: 740px;
   margin: 50px auto;
@@ -20,4 +23,8 @@
 
 .header {
   margin-bottom: 25px;
+}
+
+div.dropdown {
+  display: inline-block;  
 }
