@@ -17,3 +17,5 @@
 //function to return gifs
 //declare variable and point to result of buildURL function
 //make json call using url variable
+
+//does api call sort them by vote already?
