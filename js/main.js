@@ -1,21 +1,41 @@
 //Custom JS for Reddit Top 5 Web App
 
-//ready document
-
+$(document).ready(function() {
 
 //When a subreddit is chosen, populate video files w/ top 5 gifs on
 //for chosen date range
 
-//default date range is Today
+//Controls subreddit and range selector dropdowns
+var currentSub = "soccer";
+var currentRange = "today";
+$("[aria-labelledby='subreddit-dropdown'] a").on('click', function(e) {
+  var clicked = $(e.target);
+  currentSub = clicked.attr('id');
+  $('#subreddit-dropdown').html("r/"+currentSub+"  <span class='caret'></span>");
+  gifGen();
+});
+
+$("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
+  var clicked = $(e.target);
+  currentRange = clicked.attr('id');
+  $('#date-dropdown').html(currentRange+"  <span class='caret'></span>");
+  gifGen();
+});
 
 //function to build url
-//set values of subreddit and date range
-//add those into URL to and return full URL
-  //filter using date range
-  //sort by home page
+function buildURL(sub,range) {
+  var url = "https://www.reddit.com/r/" + sub + "/top/.json?sort=top&t=" + range;
+  return url
+};
 
 //function to return gifs
-//declare variable and point to result of buildURL function
-//make json call using url variable
+function gifGen() {
+  var url = buildURL(currentSub,currentRange);
+  $.getJSON(url).done(function() {
+    window.alert("success");
+  });
+};
 
 //does api call sort them by vote already?
+
+});
