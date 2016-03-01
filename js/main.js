@@ -30,8 +30,8 @@ function buildURL(sub,range) {
 
 //function to return gifs
 function gifGen() {
-  var url = buildURL(currentSub,currentRange);
-  $.getJSON(url).done(function() {
+  
+  $.getJSON(buildURL(currentSub,currentRange)).done(function() {
     window.alert("success");
   });
 };
