@@ -31,18 +31,20 @@ function buildURL(sub,range) {
 //function to return gifs
 function gifGen() {
   $.getJSON(buildURL(currentSub,currentRange)).done(function(listing) {
-    // window.alert(buildURL(currentSub,currentRange));
-    //data structure of json object:
-      //returns listing of first 26 or so posts
-      //listing.data.children contains array of all posts (each is an object)
-      //listing.data.children[n].data is object of all post information
-
+    console.log(buildURL(currentSub, currentRange));
     var posts = listing.data.children; //array of all posts
-
+    var limit = 0; //counter variable
     $.each(posts, function(index,post) {
       if (!post.data.domain.search("streamable")) {
-        console.log(post.data.title);
+        limit++
+        var postURL = post.data.url;
+        var urlArray = postURL.split("/"); //break URL into array
+        var uniqueID = urlArray[urlArray.length-1];
 
+        var thumbSrc = "https://cdn.streamable.com/image/" + uniqueID + ".jpg";
+        var gifSrc = "https://cdn.streamable.com/video/mp4/" + uniqueID + ".mp4";
+        console.log(gifSrc);
+        //TODO: everything is working but the objects i get from the fall are different than what i see in the json
       }
     });
     //if listing.data.children[n].data.domain is 'streamable'
@@ -57,6 +59,9 @@ function gifGen() {
           //empty #hero-container
           //append new htmls
         //else, append the html to #video-thumbs
+        //build info to be displayed when hovered
+          //use title and net score
+          //if title is longer than x chars, shorten it
 
         //break once the counter variable reaches 5
 
