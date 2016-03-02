@@ -32,7 +32,6 @@ function buildURL(sub,range) {
 function gifGen() {
   $.getJSON(buildURL(currentSub,currentRange)).done(function(listing) {
     // window.alert(buildURL(currentSub,currentRange));
-    window.alert(listing.kind);
     //data structure of json object:
       //returns listing of first 26 or so posts
       //listing.data.children contains array of all posts (each is an object)
@@ -40,12 +39,16 @@ function gifGen() {
 
     var posts = listing.data.children; //array of all posts
 
-    $.each(posts, function(post) {
-      // TODO: if (post.data.domain ==   )
+    $.each(posts, function(index,post) {
+      if (!post.data.domain.search("streamable")) {
+        console.log(post.data.title);
+
+      }
     });
     //if listing.data.children[n].data.domain is 'streamable'
       //+1 to counter variable
-      //extract video ID from end of url - whatever comes after '.com/' and before '.jpg'
+      //extract video ID from end of url - whatever comes after '.com/'
+        //var uniqueID = post.data.url.split("/")[post.data.url.length-1]
       //build poster url 'https://cdn.streamable.com/image/' + uniqueID + '.jpg'
       //build video url 'https://cdn.streamable.com/mp4/' + uniqueID + '.mp4
       //build html tags
