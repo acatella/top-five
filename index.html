@@ -39,10 +39,10 @@
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="date-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date Range  <span class="caret"></span></button>
             <ul class="dropdown-menu" aria-labelledby="date-dropdown">
-              <li><a id="Today" href="#">Today</a></li>
-              <li><a id="This Week" href="#">This Week</a></li>
-              <li><a id="This Month" href="#">This Month</a></li>
-              <li><a id="This Year" href="#">This Year</a></li>
+              <li><a id="Today" data-value="today" href="#">Today</a></li>
+              <li><a id="This Week" data-value="week" href="#">This Week</a></li>
+              <li><a id="This Month" data-value="month" href="#">This Month</a></li>
+              <!-- <li><a id="This Year" data-value="year" href="#">This Year</a></li> -->
             </ul>
         </div>
 
@@ -55,7 +55,7 @@
     <!-- hero video -->
     <div class="row">
       <div class="col-xs-12 gif-container text-center" id="hero-container">
-        <!-- <video loop="" preload="none" autoplay="" poster="https://cdn.streamable.com/image/2jh4.jpg" width="auto">
+        <!-- <video loop="" preload="none" autoplay="" poster="https://cdn.streamable.com/image/2jh4.jpg">
           <source src="https://cdn.streamable.com/video/mp4/2jh4.mp4" type="video/mp4" class="mp4-source">
         </video> -->
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
@@ -65,16 +65,16 @@
 
     <!-- remaining video thumbs -->
     <div class="row" id="video-thumbs">
-      <div class="col-xs-6 col-sm-3 thumb">
+      <div class="col-xs-6 col-sm-3 thumb" id="gifDiv2">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
-      <div class="col-xs-6 col-sm-3 thumb">
+      <div class="col-xs-6 col-sm-3 thumb" id="gifDiv3">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
-      <div class="col-xs-6 col-sm-3 thumb">
+      <div class="col-xs-6 col-sm-3 thumb" id="gifDiv4">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
-      <div class="col-xs-6 col-sm-3 thumb">
+      <div class="col-xs-6 col-sm-3 thumb" id="gifDiv5">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
     </div>
