@@ -36,9 +36,9 @@ $('.thumb').on('click', function(e) {
   var $heroGif = $heroCont.find('.gif');
   $heroGif.addClass('thumb');
   $heroGif.removeAttr('controls');
-  $heroGif.removeAttr('autoplya');
+  $heroGif.removeAttr('autoplay');
   $clickedGif.removeClass('thumb');
-  $clickedGif.attr('controls','');  
+  $clickedGif.attr('controls','');
   $clickedGif.parent().empty().append($heroGif);
   $heroCont.empty().append($clickedGif);
 
@@ -70,12 +70,19 @@ function gifGen() {
 
         var thumbSrc = "https://cdn.streamable.com/image/" + uniqueID + ".jpg";
         var gifSrc = "https://cdn.streamable.com/video/mp4/" + uniqueID + ".mp4";
+        var gifTitle = post.data.title;
 
         //testing line
         // console.log(gifSrc);
 
-        var $gifEl = $('<video>');
+        //build mask element
+        // var $maskDiv = $('<div>').addClass('mask');
+        // var $maskP = $('<p>');
+        // $maskP.text(gifTitle);
+        // $maskDiv.append($maskP);
 
+        //build gif element and source element
+        var $gifEl = $('<video>');
         $gifEl.attr({
           'loop': '',
           'preload': 'none',
@@ -100,12 +107,19 @@ function gifGen() {
           });
           $heroDiv.empty();
           $heroDiv.append($gifEl);
+          // $heroDiv.prepend($maskDiv);
         }
 
         else {
           var $gifDiv = $('#gifDiv' + counter);
           $gifDiv.empty().append($gifEl);
+          // $gifDiv.prepend($maskDiv);
         }
+
+
+
+
+
       };
     });
   });
