@@ -31,17 +31,18 @@ $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
 
 //Updates hero video when a thumb is clicked
 $('.thumb').on('click', function(e) {
-  var $clickedGif = $(e.target);
+  var $clickedGif = $(e.target).parent().find('.gif');
+  var $clickedMask = $clickedGif.parent().find('.mask');
   var $heroCont = $('#hero-container');
   var $heroGif = $heroCont.find('.gif');
+  var $heroMask = $heroCont.find('.mask');
   $heroGif.addClass('thumb');
   $heroGif.removeAttr('controls');
   $heroGif.removeAttr('autoplay');
   $clickedGif.removeClass('thumb');
   $clickedGif.attr('controls','');
-  $clickedGif.parent().empty().append($heroGif);
-  $heroCont.empty().append($clickedGif);
-
+  $clickedGif.parent().empty().append([$heroGif,$heroMask]);
+  $heroCont.empty().append([$clickedGif,$clickedMask]);
 });
 
 //function to build url
@@ -76,10 +77,8 @@ function gifGen() {
         // console.log(gifSrc);
 
         //build mask element
-        // var $maskDiv = $('<div>').addClass('mask');
-        // var $maskP = $('<p>');
-        // $maskP.text(gifTitle);
-        // $maskDiv.append($maskP);
+        var $maskDiv = $('<div>').addClass('mask');
+        $maskDiv.text(gifTitle);
 
         //build gif element and source element
         var $gifEl = $('<video>');
@@ -107,13 +106,13 @@ function gifGen() {
           });
           $heroDiv.empty();
           $heroDiv.append($gifEl);
-          // $heroDiv.prepend($maskDiv);
+          $heroDiv.append($maskDiv);
         }
 
         else {
           var $gifDiv = $('#gifDiv' + counter);
           $gifDiv.empty().append($gifEl);
-          // $gifDiv.prepend($maskDiv);
+          $gifDiv.append($maskDiv);
         }
 
 
