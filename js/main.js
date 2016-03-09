@@ -7,6 +7,7 @@ $(document).ready(function() {
 
 //TODO: what to do if gif or poster aren't valid links anymore?
 //TODO: incorporate gifs from other sources other than streamable
+//TODO: fix extra mask padding at bottom of thumbs
 
 //Controls subreddit and range selector dropdowns
 var currentSub = "soccer";
