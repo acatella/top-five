@@ -5,12 +5,8 @@ $(document).ready(function() {
 //When a subreddit is chosen, populate video files w/ top 5 gifs on
 //for chosen date range
 
-//TODO: updated hero vid when thumb is clicked
-//TODO: add hover effect that shows post title and number of upvotes
-//TODO: limit poster size to thumbnail size
 //TODO: what to do if gif or poster aren't valid links anymore?
-//TODO: incorporate gifs from other sources
-//TODO: add player controls
+//TODO: incorporate gifs from other sources other than streamable
 
 //Controls subreddit and range selector dropdowns
 var currentSub = "soccer";
@@ -69,12 +65,14 @@ function gifGen() {
         var urlArray = postURL.split("/"); //break URL into array
         var uniqueID = urlArray[urlArray.length-1];
 
+        //ensures uniqueID is only first 4 letters of streamable's identifier
+        uniqueID = uniqueID.split("");
+        uniqueID = uniqueID.slice(0,4);
+        uniqueID = uniqueID.join("");
+
         var thumbSrc = "https://cdn.streamable.com/image/" + uniqueID + ".jpg";
         var gifSrc = "https://cdn.streamable.com/video/mp4/" + uniqueID + ".mp4";
         var gifTitle = post.data.title;
-
-        //testing line
-        // console.log(gifSrc);
 
         //build mask element
         var $maskDiv = $('<div>').addClass('mask');
@@ -85,7 +83,6 @@ function gifGen() {
         $gifEl.attr({
           'loop': '',
           'preload': 'none',
-          // 'autoplay': '',
           'poster': thumbSrc,
           'id': 'gif' + counter,
           'class': 'gif',
@@ -113,12 +110,7 @@ function gifGen() {
           var $gifDiv = $('#gifDiv' + counter);
           $gifDiv.empty().append($gifEl);
           $gifDiv.append($maskDiv);
-        }
-
-
-
-
-
+        };
       };
     });
   });

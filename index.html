@@ -30,7 +30,7 @@
           <button class="btn dropdown-toggle" type="button" id="subreddit-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subreddit  <span class="caret"></span></button>
           <ul class="dropdown-menu" aria-labelledby="subreddit-dropdown">
             <li><a id="Soccer" href="#">r/Soccer</a></li>
-            <li><a id="Hockey" href="#">r/Hockey</a></li>
+            <!-- <li><a id="Hockey" href="#">r/Hockey</a></li> -->
             <li><a id="NBA" href="#">r/NBA</a></li>
           </ul>
         </div>
@@ -53,18 +53,20 @@
     <!-- TODO: create a landing page that briefly explains what the web app does -->
 
     <!-- hero video -->
+    <div class="container">
     <div class="row">
       <div class="col-xs-12 gif-container text-center" id="hero-container">
-        <div class="mask">
-          <p class="pushed-back">testing</p>
-        </div>
         <video loop="" preload="none" autoplay="" poster="https://cdn.streamable.com/image/2jh4.jpg">
           <source src="https://cdn.streamable.com/video/mp4/2jh4.mp4" type="video/mp4" class="mp4-source">
         </video>
+        <div class="mask">
+          <p class="pushed-back">testing</p>
+        </div>
         <!-- <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif"> -->
         <!-- <h4>Hero Container</h4> -->
       </div>
     </div>
+
 
     <!-- remaining video thumbs -->
     <div class="row" id="video-thumbs">
@@ -74,12 +76,14 @@
       <div class="col-xs-6 col-sm-3 thumb" id="gifDiv3">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
+      <div class="clearfix visible-xs-block"></div>
       <div class="col-xs-6 col-sm-3 thumb" id="gifDiv4">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
       <div class="col-xs-6 col-sm-3 thumb" id="gifDiv5">
         <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif">
       </div>
+    </div>
     </div>
   </div>
 
