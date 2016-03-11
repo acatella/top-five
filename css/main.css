@@ -52,7 +52,7 @@ div.dropdown {
 }
 
 video {
-  width: 100%;
+  width: 98%;
 }
 
 .thumb:hover {
@@ -73,14 +73,32 @@ video {
   font-weight: 700;
   text-transform: uppercase;
   padding-top: 65px !important;
-  width: 100%;
+  width: 98%;
   height: 100%;
+  display: flex;
 }
 
-.mask:hover {
+#hero-container .mask, #hero-container video {
+  width: 100%;
+}
+
+.mask:hover, .mask:hover .title {
   opacity: 1;
 }
 
 #hero-container .mask {
   height: 90%;
+}
+
+.title {
+  opacity: 0;
+  font-size: .8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.flex-item {
+  flex-flow: row wrap;
 }

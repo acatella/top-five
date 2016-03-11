@@ -8,6 +8,10 @@ $(document).ready(function() {
 //TODO: what to do if gif or poster aren't valid links anymore?
 //TODO: incorporate gifs from other sources other than streamable
 //TODO: fix extra mask padding at bottom of thumbs
+    //and pad videos by decreasing width %.
+      //decrease width of masks too
+//TODO: add the thumb html via js to account for < 5 gifs on 1st page
+//TODO: use a flex item inside the mask div to center text
 
 //Controls subreddit and range selector dropdowns
 var currentSub = "soccer";
@@ -28,7 +32,17 @@ $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
 
 //Updates hero video when a thumb is clicked
 $('.thumb').on('click', function(e) {
-  var $clickedGif = $(e.target).parent().find('.gif');
+  var $clicked = $(e.target);
+
+
+
+
+  if ($clicked.hasClass('flex-item')) {
+    var $clickedGif = $clicked.parent().parent().find('.gif');
+  }
+
+  else {var $clickedGif = $(e.target).parent().find('.gif');}
+
   var $clickedMask = $clickedGif.parent().find('.mask');
   var $heroCont = $('#hero-container');
   var $heroGif = $heroCont.find('.gif');
@@ -52,8 +66,6 @@ function buildURL(sub,range) {
 function gifGen() {
   $.getJSON(buildURL(currentSub,currentRange)).done(function(listing) {
 
-    //testing line
-    // console.log(buildURL(currentSub, currentRange));
 
     var posts = listing.data.children; //array of all posts
     var counter = 0; //counter variable
@@ -77,7 +89,10 @@ function gifGen() {
 
         //build mask element
         var $maskDiv = $('<div>').addClass('mask');
-        $maskDiv.text(gifTitle);
+        var $titleDiv = $('<div>').addClass('flex-item title');
+        $maskDiv.append($titleDiv);
+        $titleDiv.text(gifTitle);
+
 
         //build gif element and source element
         var $gifEl = $('<video>');
