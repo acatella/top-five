@@ -95,6 +95,13 @@ video {
   transform: translate(-50%,-50%);
 }
 
+#hero-container .flex-item {
+  /*height: 40%;*/
+}
+
+.flex-container {
+  display: flex;
+}
 .flex-item {
   flex-flow: row wrap;
 }

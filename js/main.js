@@ -31,7 +31,7 @@ $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
 });
 
 //Updates hero video when a thumb is clicked
-$('.thumb').on('click', function(e) {
+$('#video-thumbs').on('click', function(e) {
   var $clicked = $(e.target);
 
   if ($clicked.hasClass('flex-item')) {
@@ -67,8 +67,12 @@ function gifGen() {
     var posts = listing.data.children; //array of all posts
     var counter = 0; //counter variable
     var $heroDiv = $('#hero-container');
+    var $videoThumbDiv = $('#video-thumbs');
+    $heroDiv.empty();
+    $videoThumbDiv.empty();
 
     $.each(posts, function(index,post) {
+
       if (!post.data.domain.search("streamable")) {
         counter++
         var postURL = post.data.url;
@@ -119,11 +123,31 @@ function gifGen() {
           $heroDiv.append($maskDiv);
         }
 
+        // else {
+        //   var $gifDiv = $('#gifDiv' + counter);
+        //   $gifDiv.empty().append($gifEl);
+        //   $gifDiv.append($maskDiv);
+        // };
+
         else {
-          var $gifDiv = $('#gifDiv' + counter);
-          $gifDiv.empty().append($gifEl);
-          $gifDiv.append($maskDiv);
-        };
+          var $thumbDiv = $('<div>').attr({
+            'class': 'col-xs-6 col-sm-3 thumb',
+            'id': 'gifDiv' + counter
+          });
+          $thumbDiv.append($gifEl);
+          $thumbDiv.append($maskDiv);
+          $videoThumbDiv.append($thumbDiv);
+        }
+
+        //adds clearfix div after 3rd video
+        if (counter ==  3) {
+          $videoThumbDiv.append($('<div>').addClass('clearfix visible-xs-block'));
+        }
+
+        if (counter == 5) {
+          return false;
+        }
+
       };
     });
   });
