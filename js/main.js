@@ -34,14 +34,11 @@ $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
 $('.thumb').on('click', function(e) {
   var $clicked = $(e.target);
 
-
-
-
   if ($clicked.hasClass('flex-item')) {
     var $clickedGif = $clicked.parent().parent().find('.gif');
   }
 
-  else {var $clickedGif = $(e.target).parent().find('.gif');}
+  else {var $clickedGif = $clicked.parent().find('.gif');}
 
   var $clickedMask = $clickedGif.parent().find('.mask');
   var $heroCont = $('#hero-container');
