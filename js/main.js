@@ -7,11 +7,16 @@ $(document).ready(function() {
 
 //TODO: what to do if gif or poster aren't valid links anymore?
 //TODO: incorporate gifs from other sources other than streamable
-//TODO: fix extra mask padding at bottom of thumbs
-    //and pad videos by decreasing width %.
-      //decrease width of masks too
-//TODO: add the thumb html via js to account for < 5 gifs on 1st page
-//TODO: use a flex item inside the mask div to center text
+//TODO: add link below hero video title that goes to comment section on reddit
+  //Display 'Comments' when title is hovered
+  //save post id as a variable
+  //append that to end of string: 'https://www.reddit.com/r/soccer/comments/'
+  //create an <a> $object w/ full url as href
+  //empty the #hero-container #flex-container and append the $object
+  //create and append an <h5> element with Comments
+  //set <h5> elements opacity to none
+  //when <a> is hovered, <h5> opacity to 1
+
 
 //Controls subreddit and range selector dropdowns
 var currentSub = "soccer";
@@ -92,8 +97,20 @@ function gifGen() {
         var $maskDiv = $('<div>').addClass('mask');
         var $titleDiv = $('<div>').addClass('flex-item title');
         $maskDiv.append($titleDiv);
-        $titleDiv.text(gifTitle);
 
+        //build links to comments
+        var $postID = post.data.id;
+        var $commentsURL = 'https://www.reddit.com/r/soccer/comments/' + $postID;
+        var $linkEl = $('<a>').attr({
+          'href': $commentsURL,
+          'class': 'comment-link'
+        });
+        var $noteEl = $('<p>').addClass('vis-toggle note');
+        $noteEl.text('See Comments');
+        $linkEl.text(gifTitle);
+        $titleDiv.empty();
+        $titleDiv.append($linkEl);
+        $titleDiv.append($noteEl);
 
         //build gif element and source element
         var $gifEl = $('<video>');
@@ -121,6 +138,9 @@ function gifGen() {
           $heroDiv.empty();
           $heroDiv.append($gifEl);
           $heroDiv.append($maskDiv);
+
+
+
         }
 
         // else {
