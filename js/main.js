@@ -16,7 +16,7 @@ var currentRange = "today";
 $("[aria-labelledby='subreddit-dropdown'] a").on('click', function(e) {
   var clicked = $(e.target);
   currentSub = clicked.attr('id');
-  $('#subreddit-dropdown').html("r/"+currentSub+"  <span class='caret'></span>");
+  $('#subreddit-dropdown').html(currentSub+"  <span class='caret'></span>");
   gifGen();
 });
 
@@ -30,7 +30,10 @@ $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
 //Updates hero video when a thumb is clicked
 $('#video-thumbs').on('click', function(e) {
   var $clicked = $(e.target);
-
+  console.log($clicked);
+  if ($clicked.hasClass('thumb')) {
+    return false;
+  }
   if ($clicked.hasClass('flex-item')) {
     var $clickedGif = $clicked.parent().parent().find('.gif');
   }
@@ -55,6 +58,7 @@ function buildURL(sub,range) {
   var url = "https://www.reddit.com/r/" + sub + "/top/.json?sort=top&t=" + range;
   return url
 };
+
 
 //function to return gifs
 function gifGen() {
