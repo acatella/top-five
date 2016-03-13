@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Top 5 GIFs</title>
+  <title>top/five</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- disable zoom -->
@@ -14,31 +14,31 @@
   <link rel="stylesheet" href="css/main.css" type="text/css">
 </head>
 
-<body>
+<body class="grey">
   <!-- full size bg image to exist in container div -->
 
 <!-- headers -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 text-center header">
-        <h1>GIF Me 5</h1>
-        <h4>a webapp for GIF fanatics</h4>
+        <h1><span class="text-dark-grey">top</span><span class="dark-grey">/</span><span class="text-magenta">five</span></h1>
+        <h4 class="dark-grey">quick highlights from your favorite sports</h4>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 text-center">
         <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="subreddit-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subreddit  <span class="caret"></span></button>
-          <ul class="dropdown-menu" aria-labelledby="subreddit-dropdown">
-            <li><a id="Soccer" href="#">r/Soccer</a></li>
+          <button class="btn dropdown-toggle" type="button" id="subreddit-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sport  <span class="caret dark-grey"></span></button>
+          <ul class="dropdown-menu " aria-labelledby="subreddit-dropdown">
+            <li><a id="Soccer" href="#">Soccer</a></li>
             <!-- <li><a id="Hockey" href="#">r/Hockey</a></li> -->
-            <li><a id="NBA" href="#">r/NBA</a></li>
+            <li><a id="NBA" href="#">NBA</a></li>
           </ul>
         </div>
       </div>
       <div class="col-xs-6 text-center">
         <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="date-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Today  <span class="caret"></span></button>
+            <button class="btn dropdown-toggle text-grey" type="button" id="date-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Today  <span class="caret dark-grey"></span></button>
             <ul class="dropdown-menu" aria-labelledby="date-dropdown">
               <li><a id="Today" data-value="today" href="#">Today</a></li>
               <li><a id="This Week" data-value="week" href="#">This Week</a></li>
@@ -65,8 +65,8 @@
           </div>
         </div> -->
         <!-- <img src="assets/gif-fpo.jpg" height="auto" width="auto" class="img-responsive" alt="gif"> -->
-        <div class="flex-container">
-          <h4 class="flex-item">Choose a subreddit, let's watch.</h4>
+        <div class="flex-container splash text-center">
+          <h4 class="flex-item dark-grey">Choose one, let's watch.</h4>
         </div>
       </div>
     </div>

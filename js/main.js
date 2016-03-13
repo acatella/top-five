@@ -7,15 +7,7 @@ $(document).ready(function() {
 
 //TODO: what to do if gif or poster aren't valid links anymore?
 //TODO: incorporate gifs from other sources other than streamable
-//TODO: add link below hero video title that goes to comment section on reddit
-  //Display 'Comments' when title is hovered
-  //save post id as a variable
-  //append that to end of string: 'https://www.reddit.com/r/soccer/comments/'
-  //create an <a> $object w/ full url as href
-  //empty the #hero-container #flex-container and append the $object
-  //create and append an <h5> element with Comments
-  //set <h5> elements opacity to none
-  //when <a> is hovered, <h5> opacity to 1
+
 
 
 //Controls subreddit and range selector dropdowns
@@ -100,7 +92,7 @@ function gifGen() {
 
         //build links to comments
         var $postID = post.data.id;
-        var $commentsURL = 'https://www.reddit.com/r/soccer/comments/' + $postID;
+        var $commentsURL = 'https://www.reddit.com/r/' + currentSub + '/comments/' + $postID;
         var $linkEl = $('<a>').attr({
           'href': $commentsURL,
           'class': 'comment-link'
