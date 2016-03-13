@@ -8,7 +8,11 @@ $(document).ready(function() {
 //TODO: what to do if gif or poster aren't valid links anymore?
 //TODO: incorporate gifs from other sources other than streamable
 
-
+//TODO: optimize for mobile
+  //TODO: open tab comments in new tab
+  //TODO: have comment mask always showing when screen is small
+  //TODO: add a button for comments
+  //TODO: clicking anywhere in frame plays/pauses video
 
 //Controls subreddit and range selector dropdowns
 var currentSub = "soccer";
@@ -119,6 +123,7 @@ function gifGen() {
         var $commentsURL = 'https://www.reddit.com/r/' + currentSub + '/comments/' + $postID;
         var $linkEl = $('<a>').attr({
           'href': $commentsURL,
+          'target': '_blank',
           'class': 'comment-link'
         });
         var $noteEl = $('<p>').addClass('vis-toggle note');
