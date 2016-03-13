@@ -53,6 +53,26 @@ $('#video-thumbs').on('click', function(e) {
   $heroCont.empty().append([$clickedGif,$clickedMask]);
 });
 
+//prevents going to comments from loading from thumbs on mobile
+$('.comment-link').on('tap',function(e) {
+  $(e.target).preventDefault();
+})
+
+//plays video when mask is clicked
+$('#hero-container').on('click', function(e) {
+  var $heroGif = $('#hero-container').find('.gif');
+  console.log($heroGif);
+  console.log($heroGif.get(0).paused);
+  if ( $heroGif.get(0).paused) {
+    $heroGif.get(0).play();
+  }
+
+  else {
+    $heroGif.get(0).pause();
+  }
+
+});
+
 //function to build url
 function buildURL(sub,range) {
   var url = "https://www.reddit.com/r/" + sub + "/top/.json?sort=top&t=" + range;

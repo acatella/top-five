@@ -105,6 +105,10 @@ video {
   width: 100%;
 }
 
+#hero-container:hover {
+  cursor: pointer;
+}
+
 .mask:hover, .mask:hover .title {
   opacity: 1;
 }
