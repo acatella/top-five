@@ -106,7 +106,7 @@ video {
 }
 
 #hero-container:hover {
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .mask:hover, .mask:hover .title {

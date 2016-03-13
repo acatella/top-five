@@ -16,14 +16,14 @@ var currentRange = "today";
 $("[aria-labelledby='subreddit-dropdown'] a").on('click', function(e) {
   var clicked = $(e.target);
   currentSub = clicked.attr('id');
-  $('#subreddit-dropdown').html(currentSub+"  <span class='caret'></span>");
+  $('#subreddit-dropdown').html(currentSub+"  <span class='caret dark-grey'></span>");
   gifGen();
 });
 
 $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
   var clicked = $(e.target);
   currentRange = clicked.attr('data-value');
-  $('#date-dropdown').html(clicked.attr('id') +"  <span class='caret'></span>");
+  $('#date-dropdown').html(clicked.attr('id') +"  <span class='caret dark-grey'></span>");
   gifGen();
 });
 
@@ -56,7 +56,7 @@ $('#video-thumbs').on('click', function(e) {
 //prevents going to comments from loading from thumbs on mobile
 $('.comment-link').on('tap',function(e) {
   $(e.target).preventDefault();
-})
+});
 
 //plays video when mask is clicked
 $('#hero-container').on('click', function(e) {
