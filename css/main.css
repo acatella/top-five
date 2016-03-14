@@ -106,7 +106,7 @@ video {
 }
 
 #hero-container:hover {
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 .mask:hover, .mask:hover .title {
@@ -134,11 +134,11 @@ video {
   color: #fff;
 }
 .vis-toggle {
-  opacity: 0;
+  visibility: hidden;
 }
 
 .comment-link:hover + .vis-toggle {
-  opacity: 1;
+  visibility: visible;
 }
 
 .flex-container {
