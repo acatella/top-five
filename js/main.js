@@ -34,16 +34,16 @@ $("[aria-labelledby='date-dropdown'] a").on('click', function(e) {
 //Updates hero video when a thumb is clicked
 $('#video-thumbs').on('click', function(e) {
   var $clicked = $(e.target);
-  console.log($clicked);
+
+  //prevents error when white space between gifs is clicked, ensures gif is correct
   if ($clicked.hasClass('thumb')) {
     return false;
-  }
-  if ($clicked.hasClass('flex-item')) {
+  } else if ($clicked.hasClass('comment-link')) {
+    var gifNumber = $clicked.attr('data-value');
+    var $clickedGif = $('#video-thumbs').find('#'+ gifNumber);
+  } else if ($clicked.hasClass('flex-item')) {
     var $clickedGif = $clicked.parent().parent().find('.gif');
-  }
-
-  else {var $clickedGif = $clicked.parent().find('.gif');}
-
+  } else {var $clickedGif = $clicked.parent().find('.gif');}
   var $clickedMask = $clickedGif.parent().find('.mask');
   var $heroCont = $('#hero-container');
   var $heroGif = $heroCont.find('.gif');
@@ -65,8 +65,7 @@ $('.comment-link').on('tap',function(e) {
 //plays video when mask is clicked
 $('#hero-container').on('click', function(e) {
   var $heroGif = $('#hero-container').find('.gif');
-  console.log($heroGif);
-  console.log($heroGif.get(0).paused);
+  
   if ( $heroGif.get(0).paused) {
     $heroGif.get(0).play();
   }
@@ -124,7 +123,8 @@ function gifGen() {
         var $linkEl = $('<a>').attr({
           'href': $commentsURL,
           'target': '_blank',
-          'class': 'comment-link'
+          'class': 'comment-link',
+          'data-value': 'gif' + counter
         });
         var $noteEl = $('<p>').addClass('vis-toggle note');
         $noteEl.text('See Comments');
